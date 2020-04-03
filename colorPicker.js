@@ -20,9 +20,10 @@ for (let i = 0; i <  squares.length; i++) {
     
     squares[i].style.backgroundColor = colors[i];
     
-    squares[i].addEventListener("click", () => {
-        if (squares[i].style.backgroundColor === pickedColor) {
+    squares[i].addEventListener("click", function () {
+        if (this.style.backgroundColor === pickedColor) {
             messageSpan.textContent = "Correct";
+            changeColor(pickedColor);
         }
         else {
             squares[i].style.backgroundColor = bodyColor;
@@ -30,3 +31,9 @@ for (let i = 0; i <  squares.length; i++) {
         }
     }); 
 }
+
+let changeColor = function (color) {
+    for (let square of squares) {
+        square.style.backgroundColor = color;
+    }
+};
