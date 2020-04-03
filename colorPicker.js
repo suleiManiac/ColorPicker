@@ -8,6 +8,8 @@ let colors = [
 ];
 
 let bodyColor = document.querySelector("body").style.backgroundColor;
+let messageSpan = document.querySelector("#message");
+
 let pickedColor = colors[3];
 let colorDisplay = document.querySelector("#colorDisplay");
 colorDisplay.textContent = pickedColor.toLocaleUpperCase();
@@ -20,10 +22,11 @@ for (let i = 0; i <  squares.length; i++) {
     
     squares[i].addEventListener("click", () => {
         if (squares[i].style.backgroundColor === pickedColor) {
-            alert("correct");
+            messageSpan.textContent = "Correct";
         }
         else {
             squares[i].style.backgroundColor = bodyColor;
+            messageSpan.textContent = "Try Again!!";
         }
     }); 
 }
