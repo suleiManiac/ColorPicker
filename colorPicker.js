@@ -10,7 +10,7 @@ let colors = [
 let bodyColor = document.querySelector("body").style.backgroundColor;
 let messageSpan = document.querySelector("#message");
 
-let pickedColor = colors[3];
+let pickedColor = pickColor();
 let colorDisplay = document.querySelector("#colorDisplay");
 colorDisplay.textContent = pickedColor.toLocaleUpperCase();
 
@@ -37,3 +37,9 @@ let changeColor = function (color) {
         square.style.backgroundColor = color;
     }
 };
+
+function pickColor () {
+    let random = Math.floor(Math.random() * colors.length);
+
+    return colors[random];
+}
