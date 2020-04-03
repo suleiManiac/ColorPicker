@@ -1,11 +1,6 @@
-let colors = [
-    "rgb(255, 0, 0)",
-    "rgb(255, 255, 0)",
-    "rgb(0, 255, 0)",
-    "rgb(0, 255, 255)",
-    "rgb(0, 0, 255)",
-    "rgb(255, 0, 255)"
-];
+let colorLength = 6;
+
+let colors = generateRandomColors(colorLength);
 
 let bodyColor = document.querySelector("body").style.backgroundColor;
 let messageSpan = document.querySelector("#message");
@@ -42,4 +37,21 @@ function pickColor () {
     let random = Math.floor(Math.random() * colors.length);
 
     return colors[random];
+}
+
+function generateRandomColors (num) {
+    let array = [];
+    
+    for (let i = 0; i < num; i++) {
+        array.push(randomColor());
+    }  
+
+    return array;
+}
+function randomColor() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+
+    return "rgb(" + r + ", " + g + ", " + b +")";
 }
