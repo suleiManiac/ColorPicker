@@ -1,7 +1,7 @@
 let colorLength = 6;
 
 let colors = generateRandomColors(colorLength);
-
+let h1 = document.querySelector("h1");
 let bodyColor = document.querySelector("body").style.backgroundColor;
 let messageSpan = document.querySelector("#message");
 
@@ -19,6 +19,7 @@ for (let i = 0; i <  squares.length; i++) {
         if (this.style.backgroundColor === pickedColor) {
             messageSpan.textContent = "Correct";
             changeColor(pickedColor);
+            h1.style.backgroundColor = this.style.backgroundColor;
         }
         else {
             squares[i].style.backgroundColor = bodyColor;
