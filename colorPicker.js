@@ -67,6 +67,7 @@ function resetGame () {
     
     colors = generateRandomColors(colorLength);
     pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor.toLocaleUpperCase();
 
     for (let i = 0; i < colors.length; i++) {
         squares[i].style.backgroundColor = colors[i];
