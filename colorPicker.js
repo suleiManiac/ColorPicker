@@ -11,6 +11,9 @@ colorDisplay.textContent = pickedColor.toLocaleUpperCase();
 
 let squares = document.querySelectorAll(".square");
 
+let resetBtn = document.querySelector("button");
+resetBtn.addEventListener("click", resetGame);
+
 for (let i = 0; i <  squares.length; i++) {
     
     squares[i].style.backgroundColor = colors[i];
@@ -55,4 +58,14 @@ function randomColor() {
     let b = Math.floor(Math.random() * 256);
 
     return "rgb(" + r + ", " + g + ", " + b +")";
+}
+
+function resetGame () {
+    colors = generateRandomColors(colorLength);
+    pickedColor = pickColor();
+
+    for (let i = 0; i < colors.length; i++) {
+        squares[i].style.backgroundColor = colors[i];
+    }  
+
 }
