@@ -11,7 +11,7 @@ colorDisplay.textContent = pickedColor.toLocaleUpperCase();
 
 let squares = document.querySelectorAll(".square");
 
-let resetBtn = document.querySelector("button");
+let resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", resetGame);
 
 for (let i = 0; i <  squares.length; i++) {
@@ -23,6 +23,7 @@ for (let i = 0; i <  squares.length; i++) {
             messageSpan.textContent = "Correct";
             changeColor(pickedColor);
             h1.style.backgroundColor = this.style.backgroundColor;
+            resetBtn.textContent = "Play Again?";
         }
         else {
             squares[i].style.backgroundColor = bodyColor;
@@ -61,6 +62,9 @@ function randomColor() {
 }
 
 function resetGame () {
+    resetBtn.textContent = "New Colors";
+    h1.style.backgroundColor = bodyColor;
+    
     colors = generateRandomColors(colorLength);
     pickedColor = pickColor();
 
