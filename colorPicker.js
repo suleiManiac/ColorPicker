@@ -14,6 +14,23 @@ let squares = document.querySelectorAll(".square");
 let resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", resetGame);
 
+let hardBtn = document.querySelector("#hardBtn");
+let easyBtn = document.querySelector("#easyBtn");
+
+easyBtn.addEventListener("click", function() {
+    easyBtn.classList.add("selected");
+    hardBtn.classList.remove("selected");
+    colorLength = 3;
+    resetGame();
+});
+
+hardBtn.addEventListener("click", function() {
+    hardBtn.classList.add("selected");
+    easyBtn.classList.remove("selected");
+    colorLength = 6;
+    resetGame();
+});
+
 for (let i = 0; i <  squares.length; i++) {
     
     squares[i].style.backgroundColor = colors[i];
@@ -64,13 +81,24 @@ function randomColor() {
 function resetGame () {
     resetBtn.textContent = "New Colors";
     h1.style.backgroundColor = bodyColor;
-    
     colors = generateRandomColors(colorLength);
     pickedColor = pickColor();
     colorDisplay.textContent = pickedColor.toLocaleUpperCase();
 
     for (let i = 0; i < colors.length; i++) {
         squares[i].style.backgroundColor = colors[i];
-    }  
+        
+    }
+    
+    for (let i = 0; i < squares.length; i++) {
+        if (colorLength === 3) {
+            if (i > 2) {
+                squares[i].style.display = "none";
+            }
+        }
+        else {
+            squares[i].style.display = "block";
+        }
+    }
 
 }
