@@ -2,6 +2,7 @@ let colorLength = 6;
 
 let colors = generateRandomColors(colorLength);
 let h1 = document.querySelector("h1");
+h1.style.backgroundColor = "steelblue";
 let bodyColor = document.querySelector("body").style.backgroundColor;
 let messageSpan = document.querySelector("#message");
 
@@ -37,9 +38,9 @@ for (let i = 0; i <  squares.length; i++) {
     
     squares[i].addEventListener("click", function () {
         if (this.style.backgroundColor === pickedColor) {
-            messageSpan.textContent = "Correct";
+            messageSpan.textContent = "Correct!";
             changeColor(pickedColor);
-            h1.style.backgroundColor = this.style.backgroundColor;
+            h1.style.backgroundColor = pickedColor;
             resetBtn.textContent = "Play Again?";
         }
         else {
@@ -80,6 +81,7 @@ function randomColor() {
 
 function resetGame () {
     resetBtn.textContent = "New Colors";
+    messageSpan.textContent = "";
     h1.style.backgroundColor = bodyColor;
     colors = generateRandomColors(colorLength);
     pickedColor = pickColor();
